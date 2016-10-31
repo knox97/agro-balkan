@@ -1,0 +1,203 @@
+$color: #222
+$bg: #EEE
+$green: #4AA02C
+$bg_main: #FFF
+$ferrari: #F70D1A
+$bg_main_alt: #AAA
+$caramel: #C68E17
+
+#page-title
+	font-weight: bold
+	margin: 10px 0px
+
+.ads
+	background: $bg_main
+	margin-bottom: 10px
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.15)
+	border: 1px solid $bg_main_alt
+	padding: 10px
+	h1, h2, h3, h4, h5, h6, p
+		margin: 0
+	img
+		cursor: pointer
+		max-width: 100%
+		margin-bottom: 10px
+	img:last-child
+		margin-bottom: 0
+
+.newPostWindow
+	position: fixed
+	top: 0
+	left: 0
+	visibility: hidden
+	width: 100%
+	height: 100%
+	color: #fff
+	background: $green
+	padding: 35px
+	input, textarea
+		width: 100%
+	textarea
+		resize: none
+	input
+		margin-bottom: 6px
+	button
+		padding: 10px
+		background: rgba(0,0,0,0.2)
+		font-weight: bold
+		border: 1px solid rgba(0,0,0,0.35)
+
+.newPost
+	cursor: pointer
+	background: $bg_main
+	margin-bottom: 10px
+	padding: 10px
+	font-weight: bold
+	font-size: 20px
+	color: $color
+	text-align: center
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.15)
+	border: 1px solid $bg_main_alt
+
+.post-info-item
+	font-weight: bold
+	color: #000
+
+.return-back
+	background: $green
+	//text-shadow: 0px 0px 4px #000
+	padding: 10px
+	float: left
+	display: block
+	color: #FFF
+	margin: 0 0 10px 15px
+	font-weight: bold
+	cursor: pointer
+	span
+		padding: 0 5px
+
+.remove-post-btn
+	padding: 10px
+	background: $green
+	color: #FFF
+	visibility: hidden
+	border: 1px solid $green
+	font-weight: bold
+	margin: 8px 5px
+	cursor: pointer
+
+
+.post
+	background: $bg_main
+	cursor: pointer
+	margin-bottom: 10px !important
+	padding: 10px
+	box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.15)
+	border: 1px solid $bg_main_alt
+	div
+		padding: 0px 18px 0 11px
+		.post-info-left
+			float: left
+			h3
+				font-weight: bold
+				margin-bottom: 5px
+			*
+				margin: 0
+		.post-info-right
+			float: right
+			margin: 0
+			padding: 0
+			.post-info-price
+				background: $green
+				text-shadow: 0px 0px 4px #000
+				padding: 5px
+				border-radius: 5px
+				color: #FFF
+				margin: 0
+				font-weight: bold
+		.post-img
+			float: left
+			max-height: 150px
+			max-width: 150px
+	.post-header
+		margin: 0
+		padding: 5px
+		background: $ferrari
+		text-shadow: 0px 0px 2px #000
+		.post-header-img
+			box-shadow: 0px 0px 1px 1px #000
+			float: left
+			height: 50px
+			width: 50px
+		.post-header-title
+			float: left
+			padding: 5px 10px
+			color: #FFF
+			h4
+				margin: 0
+				padding: 0
+				font-weight: bold
+			p
+				padding: 0
+				text-shadow: none
+				margin: 0
+				font-weight: bold
+				color: #222
+	.post-body
+		margin: 0
+		padding: 10px
+	.post-footer
+		margin: 0
+		padding: 5px
+		.post-footer-item
+			*
+				float: left
+			p
+				margin: 0px
+				color: #CCC
+				padding: 3px 6px
+				font-weight: bold
+			span
+				margin: 0
+				color: #555
+				text-shadow: 0px 0px 1px #000
+				font-size: 20px
+				padding: 3px
+	.post-comment
+		padding: 10px 24px
+		.post-comment-input
+			overflow: hidden
+			resize: none
+			width: 100%
+
+
+.post:last-child
+	margin-bottom: 0px
+
+.ad
+	background: $bg_main
+	border: 1px solid $bg_main_alt
+	img:last-child
+		padding-bottom: 5px
+	img
+		width: 100%
+		height: 100%
+		padding: 5px
+		padding-bottom: 0
+
+.root
+	.col-md-8, .col-md-4
+		margin: 0
+		padding: 5px
+
+option
+	color: #000 !important
+
+.company-name
+	color: green !important
+	text-decoration: none
+	&:hover, &:visited, &:active
+		color: green
+		text-decoration: none
+
+

@@ -1,0 +1,23 @@
+.categories div {
+  padding: 20px;
+  cursor: pointer;
+  text-align: center; }
+  .categories div:hover {
+    background: rgba(0, 0, 0, 0.35); }
+  .categories div h3 {
+    padding: 0;
+    margin: 0;
+    font-weight: bold; }
+  .categories div img {
+    padding: 10px;
+    width: 90%;
+    height: 90%; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+  a:hover, a:active, a:visited {
+    color: inherit;
+    text-decoration: none; }
+
+/*# sourceMappingURL=category-page.css.map */

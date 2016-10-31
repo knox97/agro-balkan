@@ -1,0 +1,228 @@
+$bg: #DDD
+$nav: #4AA02C
+$color: #222
+$nav_c: #222
+$bg_main: #FFF
+$bg_main_alt: #CCC
+$ferrari: #FFF
+$post-shadow: #66a5ad
+$caramel: #C68E17
+
+
+html
+	overflow-y: scroll
+
+.nav-profile
+	width: 90%
+	height: 90%
+	margin: 0
+	padding: 4px
+
+.search-bar
+	margin: 10px 0px 10px 0px
+	min-width: 250px
+	float: left
+	border: 1px solid rgba(255,255,0,0.85)
+	border-right: none
+
+.search-btn
+	margin: 10px 4px 10px 0px
+	float: left
+	border: 1px solid rgba(255,255,0,0.85)
+	cursor: pointer
+	border-left: none
+	padding: 5px 8px
+
+.navbar-brand
+	color: $ferrari !important
+	font-weight: bold
+	span
+		color: #FFFF00
+.text-shadow
+	text-shadow: 1px 1px 1px #000, -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 0px 1px 
+
+input, textarea
+	padding: 5px 8px
+	background: rgba(0,0,0,0.05)
+	border: 1px solid #FF0
+
+select
+	margin: 8px 0 12px 0
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	padding: 7px 10px
+	background: rgba(0,0,0,0.05)
+	border: 1px solid #FF0
+
+company-name
+	color: $nav !important
+	a
+		color: $nav !important
+
+option
+	background-color: transparent !important
+
+
+body
+	color: $color
+	padding-top: 70px
+	padding-bottom: 70px
+	border-color: $post-shadow
+	background: $bg
+	.main
+		background: transparent
+		border: none
+	.navbar
+		background: $nav
+		border: none
+		box-shadow: 0px 0px 20px 6px rgba(0,0,0,0.75)
+		color: $bg_main !important
+
+.navbar-nav
+	font-weight: bold
+	text-shadow: 0px 0px 1px #000
+	li
+		a
+			color: $bg_main !important
+	.active
+		background: $bg !important
+		a
+			color: $nav_c !important
+
+.dropdown
+	background: $nav
+	.dropdown-menu
+		background: $nav
+
+.dropdown-toggle:active
+	color: $nav_c
+
+li
+	color: $bg_main !important
+
+.company-name
+	color: green
+	text-decoration: none
+	&:hover, &:visited, &:active
+		color: green
+		text-decoration: none
+
+.chat-window
+	position: fixed
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	padding-left: 16px
+	padding-right: 16px
+	visibility: hidden
+	color: #FFF
+	background: rgba(0,0,0,0.35)
+	.chat-window-wrap
+		border: 4px solid $nav
+		box-shadow: 0px 0px 35px 4px #000
+		.row
+			padding: 0
+			margin: 0
+			.chat-list
+				height: 100%
+				width: 25%
+				background: rgba(0,0,0,0.95)
+				float: left
+				max-height: 100%
+				overflow-y: auto
+				.chat-list-user
+					border-bottom: 1px solid rgba(0,0,0,0.35)
+					padding: 5px
+					width: 100%
+					cursor: pointer
+					float: left
+					background: rgba(30,255,0,0.35)
+					display: block-inline
+					img
+						max-height: 40px
+						max-width: 40px
+						float: left
+					p
+						float: left
+						font-size: 18px
+						margin: 0
+						padding: 8px 10px
+					&:hover, &:active, &:visited
+						background: rgba(0,120,0,0.35)
+
+				.chat-list-user:last-child
+					border-bottom: none
+			.chat-message
+				height: 100%
+				float: left
+				width: 75%
+				.chat-message-main
+					height: 90%
+					background: rgba(0,0,0,0.85)
+					.messages
+						height: 94%
+						overflow-y: auto !important
+						.message-me
+							padding: 10px
+							width: 100%
+							float: left
+							img
+								max-width: 40px
+								max-height: 40px
+								float: left
+								margin: 1px 10px
+							.msg-txt
+								max-width: 60%
+								background: rgba(0,200,0,0.35)
+								float: left
+								padding: 10px
+						.message-else
+							padding: 10px
+							width: 100%
+							float: left
+							img
+								max-width: 40px
+								max-height: 40px
+								float: right
+								margin: 1px 10px
+							.msg-txt
+								max-width: 60%
+								background: rgba(0,200,0,0.35)
+								float: right
+								padding: 10px
+				.chat-message-input
+					height: 10%
+					background: rgba(0,0,0,0.95)
+					textarea
+						border: none
+						border-top: 1px solid $nav
+						resize: none
+						height: 100%
+						width: 100%
+				.chat-message-title
+					font-weight: bold
+					margin: 0
+					width: 100%
+					border-bottom: 1px solid $nav
+					background: rgba(0,0,0,0.35)
+					padding: 4px 10px
+					font-size: 16px
+
+.chat-open
+	position: fixed
+	left: 0
+	text-align: center
+	padding: 10px
+	border-top: 1px solid rgba(0,0,0,0.35)
+	font-size: 5vh
+	color: #FFF
+	font-weight: bold
+	cursor: pointer
+	h4
+		padding: 0
+		margin: 0
+	bottom: 0
+	width: 100%
+	background: $nav

@@ -1,0 +1,217 @@
+html {
+  overflow-y: scroll; }
+
+.nav-profile {
+  width: 90%;
+  height: 90%;
+  margin: 0;
+  padding: 4px; }
+
+.search-bar {
+  margin: 10px 0px 10px 0px;
+  min-width: 250px;
+  float: left;
+  border: 1px solid rgba(255, 255, 0, 0.85);
+  border-right: none; }
+
+.search-btn {
+  margin: 10px 4px 10px 0px;
+  float: left;
+  border: 1px solid rgba(255, 255, 0, 0.85);
+  cursor: pointer;
+  border-left: none;
+  padding: 5px 8px; }
+
+.navbar-brand {
+  color: #FFF !important;
+  font-weight: bold; }
+  .navbar-brand span {
+    color: #FFFF00; }
+
+.text-shadow {
+  text-shadow: 1px 1px 1px #000, -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 0px 1px; }
+
+input, textarea {
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #FF0; }
+
+select {
+  margin: 8px 0 12px 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 7px 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #FF0; }
+
+company-name {
+  color: #4AA02C !important; }
+  company-name a {
+    color: #4AA02C !important; }
+
+option {
+  background-color: transparent !important; }
+
+body {
+  color: #222;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  border-color: #66a5ad;
+  background: #DDD; }
+  body .main {
+    background: transparent;
+    border: none; }
+  body .navbar {
+    background: #4AA02C;
+    border: none;
+    box-shadow: 0px 0px 20px 6px rgba(0, 0, 0, 0.75);
+    color: #FFF !important; }
+
+.navbar-nav {
+  font-weight: bold;
+  text-shadow: 0px 0px 1px #000; }
+  .navbar-nav li a {
+    color: #FFF !important; }
+  .navbar-nav .active {
+    background: #DDD !important; }
+    .navbar-nav .active a {
+      color: #222 !important; }
+
+.dropdown {
+  background: #4AA02C; }
+  .dropdown .dropdown-menu {
+    background: #4AA02C; }
+
+.dropdown-toggle:active {
+  color: #222; }
+
+li {
+  color: #FFF !important; }
+
+.company-name {
+  color: green;
+  text-decoration: none; }
+  .company-name:hover, .company-name:visited, .company-name:active {
+    color: green;
+    text-decoration: none; }
+
+.chat-window {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  visibility: hidden;
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.35); }
+  .chat-window .chat-window-wrap {
+    border: 4px solid #4AA02C;
+    box-shadow: 0px 0px 35px 4px #000; }
+    .chat-window .chat-window-wrap .row {
+      padding: 0;
+      margin: 0; }
+      .chat-window .chat-window-wrap .row .chat-list {
+        height: 100%;
+        width: 25%;
+        background: rgba(0, 0, 0, 0.95);
+        float: left;
+        max-height: 100%;
+        overflow-y: auto; }
+        .chat-window .chat-window-wrap .row .chat-list .chat-list-user {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+          padding: 5px;
+          width: 100%;
+          cursor: pointer;
+          float: left;
+          background: rgba(30, 255, 0, 0.35);
+          display: block-inline; }
+          .chat-window .chat-window-wrap .row .chat-list .chat-list-user img {
+            max-height: 40px;
+            max-width: 40px;
+            float: left; }
+          .chat-window .chat-window-wrap .row .chat-list .chat-list-user p {
+            float: left;
+            font-size: 18px;
+            margin: 0;
+            padding: 8px 10px; }
+          .chat-window .chat-window-wrap .row .chat-list .chat-list-user:hover, .chat-window .chat-window-wrap .row .chat-list .chat-list-user:active, .chat-window .chat-window-wrap .row .chat-list .chat-list-user:visited {
+            background: rgba(0, 120, 0, 0.35); }
+        .chat-window .chat-window-wrap .row .chat-list .chat-list-user:last-child {
+          border-bottom: none; }
+      .chat-window .chat-window-wrap .row .chat-message {
+        height: 100%;
+        float: left;
+        width: 75%; }
+        .chat-window .chat-window-wrap .row .chat-message .chat-message-main {
+          height: 90%;
+          background: rgba(0, 0, 0, 0.85); }
+          .chat-window .chat-window-wrap .row .chat-message .chat-message-main .messages {
+            height: 94%;
+            overflow-y: auto !important; }
+            .chat-window .chat-window-wrap .row .chat-message .chat-message-main .messages .message-me {
+              padding: 10px;
+              width: 100%;
+              float: left; }
+              .chat-window .chat-window-wrap .row .chat-message .chat-message-main .messages .message-me img {
+                max-width: 40px;
+                max-height: 40px;
+                float: left;
+                margin: 1px 10px; }
+              .chat-window .chat-window-wrap .row .chat-message .chat-message-main .messages .message-me .msg-txt {
+                max-width: 60%;
+                background: rgba(0, 200, 0, 0.35);
+                float: left;
+                padding: 10px; }
+            .chat-window .chat-window-wrap .row .chat-message .chat-message-main .messages .message-else {
+              padding: 10px;
+              width: 100%;
+              float: left; }
+              .chat-window .chat-window-wrap .row .chat-message .chat-message-main .messages .message-else img {
+                max-width: 40px;
+                max-height: 40px;
+                float: right;
+                margin: 1px 10px; }
+              .chat-window .chat-window-wrap .row .chat-message .chat-message-main .messages .message-else .msg-txt {
+                max-width: 60%;
+                background: rgba(0, 200, 0, 0.35);
+                float: right;
+                padding: 10px; }
+        .chat-window .chat-window-wrap .row .chat-message .chat-message-input {
+          height: 10%;
+          background: rgba(0, 0, 0, 0.95); }
+          .chat-window .chat-window-wrap .row .chat-message .chat-message-input textarea {
+            border: none;
+            border-top: 1px solid #4AA02C;
+            resize: none;
+            height: 100%;
+            width: 100%; }
+        .chat-window .chat-window-wrap .row .chat-message .chat-message-title {
+          font-weight: bold;
+          margin: 0;
+          width: 100%;
+          border-bottom: 1px solid #4AA02C;
+          background: rgba(0, 0, 0, 0.35);
+          padding: 4px 10px;
+          font-size: 16px; }
+
+.chat-open {
+  position: fixed;
+  left: 0;
+  text-align: center;
+  padding: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.35);
+  font-size: 5vh;
+  color: #FFF;
+  font-weight: bold;
+  cursor: pointer;
+  bottom: 0;
+  width: 100%;
+  background: #4AA02C; }
+  .chat-open h4 {
+    padding: 0;
+    margin: 0; }
+
+/*# sourceMappingURL=style.css.map */
