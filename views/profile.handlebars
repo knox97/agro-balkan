@@ -1,0 +1,116 @@
+
+<link rel="stylesheet" type="text/css" href="/css/home-page.css">
+<div class="row root">
+	<!-- Main Content -->
+	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+		<div class="posts">
+			<!--<div class="post">
+				<div class="row">
+					<div class="post-info-left" style="width: 60%">
+						<h3>Corns culminated lately</h3>
+						<p><span class="post-info-item">Date:</span> 14th May, 2016</p>
+						<p><span class="post-info-item">Description:</span> aksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkak...</p>
+						<p><span class="post-info-item">Phone:</span> 065 3352334</p>
+						<p><span class="post-info-item">By:</span> Michael Lacarak</p>
+						
+					</div>
+					<div class="post-info-right">
+						<h4 class="post-info-price"><span>100</span> RSD/kg</h4>
+					</div>
+				</div>
+				
+			</div>-->
+			
+			{{#each data}}
+				<div class="post">
+					<div class="row">
+						<!--<img src="/img/goods/good-1.jpg" class="post-img" />-->
+						<div class="post-info-left" style="width: 60%">
+							<h3>{{title}}</h3>
+							<p><span class="post-info-item">Datum:</span> {{date}}</p>
+							<p><span class="post-info-item">Opis:</span> {{desc}}</p>
+							<p><span class="post-info-item">Telefon:</span> {{phone}}</p>
+							<p><span class="post-info-item">Postavio:</span><a href="/profile/{{by_id}}"> {{name}}</a></p>
+							
+						</div>
+						<div class="post-info-right">
+							<h4 class="post-info-price"><span>{{price}}</span> {{currency}}</h4>
+						</div>
+					</div>
+					<button id="{{_id}}" class="remove-post-btn" onclick="javascript: removePost(this.id);">Obrisi oglas</button>
+				</div>
+			{{/each}}
+
+
+
+
+		</div>
+
+		
+	</div>
+
+	<!-- Place for profile info -->
+	<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+		<div class="ads">
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var isUser = {{isUser}};
+	if (isUser)
+		$('.remove-post-btn').css('visibility', 'visible');
+	else
+		$('.remove-post-btn').css('visibility', 'hidden');	
+
+	var id = "{{profileID}}";
+	var myID = '{{user.id}}';
+
+	var url = `https://agro-balkan.herokuapp.com/api/getUserInfo?id=${id}&myID=${myID}`;
+	console.log(url);
+
+	$.ajax({
+		type: 'GET',
+		url: url,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data);
+			var html = `<img src="${data.data.photo}">
+			<h3 style="font-weight: bold; margin: 5px 0 0 0">${data.data.name}</h3>
+			<p style="margin: 0">${data.data.email}</p>`;
+			$('.ads').html(html);
+			if (data.isUser)
+				$('.remove-post-btn').css('visibility', 'visible');
+			else
+				$('.remove-post-btn').css('visibility', 'hidden');	
+		},
+		error: function(err) {
+			console.log(err);
+		}
+	});
+});
+
+
+	function removePost(id) {
+		console.log(id);
+
+		var url = `https://agro-balkan.herokuapp.com/api/removePost?id=${id}`;
+		//var url = `http://localhost:3000/api/removePost?id=${id}`;
+
+			$.ajax({
+				type: 'GET',
+				url: url,
+				dataType: 'json',
+				success: function(data) {
+					console.log(data);
+					if (data.status == 'SUCCESS') {
+						location.reload();
+					}
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+	}
+</script>

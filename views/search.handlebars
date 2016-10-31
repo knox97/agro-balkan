@@ -1,0 +1,99 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="/css/home-page.css">
+<div class="row">
+	<a href="/category"><div class="return-back" >
+		<span class="glyphicon glyphicon-arrow-left"></span> Nazad
+	</div></a>
+</div>
+
+<h1 id="page-title"></h1>
+
+<div class="row root">
+	<!-- Main Content -->
+	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+		<div class="posts">
+			<!--<div class="post">
+				<div class="row">
+					<div class="post-info-left" style="width: 60%">
+						<h3>Corns culminated lately</h3>
+						<p><span class="post-info-item">Date:</span> 14th May, 2016</p>
+						<p><span class="post-info-item">Description:</span> aksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkak...</p>
+						<p><span class="post-info-item">Phone:</span> 065 3352334</p>
+						<p><span class="post-info-item">By:</span> Michael Lacarak</p>
+						
+					</div>
+					<div class="post-info-right">
+						<h4 class="post-info-price"><span>100</span> RSD/kg</h4>
+					</div>
+				</div>
+				
+			</div>-->
+			
+			{{#each searchResults}}
+				<div class="post">
+					<div class="row">
+						<!--<img src="/img/goods/good-1.jpg" class="post-img" />-->
+						<div class="post-info-left" style="width: 60%">
+							<h3>{{title}}</h3>
+							<p><span class="post-info-item">Datum:</span> {{date}}</p>
+							<p><span class="post-info-item">Opis:</span> {{desc}}</p>
+							<p><span class="post-info-item">Telefon:</span> {{phone}}</p>
+							<p><span class="post-info-item">Postavio:</span><a href="/profile/{{by_id}}"> {{name}}</a></p>
+							
+						</div>
+						<div class="post-info-right">
+							<h4 class="post-info-price"><span>{{price}}</span> {{currency}}</h4>
+						</div>
+					</div>
+					
+				</div>
+			{{/each}}
+
+
+		</div>
+
+		
+	</div>
+	<!-- Place for Ads -->
+	<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+		<div class="ads">
+			<img src="/img/ads/ad1.jpg">
+			<img src="/img/ads/ad2.png">
+			<img src="/img/ads/ad3.jpg">
+		</div>
+	</div>
+</div>
+
+
+
+<!--<div class="post">
+	<div class="row post-header">
+		<img class="post-header-img" src="{{data.photo}}">
+		<div class="post-header-title">
+			<h4>{{data.name}}</h4>
+			<p>12th May, 2016</p>
+		</div>
+	</div>
+	<div class="row post-body">
+		Img post text fun
+	</div>
+	<div class="row post-footer">
+		Like Comment Etc..
+	</div>
+</div>-->
+
+
+<!--
+	<h4>{{data.id}}</h4>
+	<h4>{{data.name}}</h4>
+	<h4>{{data.email}}</h4>
+	<img src="{{data.photo}}"/>	
+
+-->
+
+
+
+<script type="text/javascript">
+	
+</script>

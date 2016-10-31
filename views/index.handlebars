@@ -1,0 +1,45 @@
+
+
+<div class="row">
+	<div class="col-md-8 col-sm-12 col-lg-8 col-xs-12 left-side">
+		<h1><span class="glyphicon glyphicon-grain"></span> <span class="h1">Kupovina i Prodaja poljoprivrednih proizvoda</span></h1>
+		<h1><span class="glyphicon glyphicon-road"></span> <span class="h1">Transportne usluge</span></h1>
+		<h1><span class="glyphicon glyphicon-briefcase"></span> <span class="h1">Polise osiguranja</span></h1>
+		<h1><span class="glyphicon glyphicon-tint"></span> <span class="h1">Kupovina i Prodaja poljoprivrednih hemijskih sredstava</span></h1>
+		<h1><span class="glyphicon glyphicon-wrench"></span> <span class="h1">Kupovina i Prodaja poljoprivredne opreme</span></h1>
+		<h1><span class="glyphicon glyphicon-ice-lolly-tasted"></span> <span class="h1">Kupovina i Prodaja stoke</span></h1>
+		<button onclick="windowAPI('soon', 'show')">Uskoro</button>
+	</div>
+	<div class="col-md-4 col-sm-12 col-lg-4 col-xs-12 right-side">
+		Uloguj se putem<br>
+		<a href="/auth/facebook"><img class="btn-login" src="/img/loginFB.png"/></a><br>
+		ili nastavi kao <br>
+		<a href="/category"><button>Gost</button></a>
+	</div>
+</div>
+
+
+<div class="soon"><span class="glyphicon glyphicon-remove close-btn" onclick="windowAPI('soon', 'hide')"></span>
+	<h4><span class="glyphicon glyphicon-menu-right"></span>Chat uzivo sa korisnicima</h4>
+	<h4><span class="glyphicon glyphicon-menu-right"></span>Forum za korisnike</h4>
+	<h4><span class="glyphicon glyphicon-menu-right"></span>Mogucnost ocenjivanja korisnika</h4>
+	<h4><span class="glyphicon glyphicon-menu-right"></span>Sekcija sa pitanjima vezanim za oglase</h4>
+</div>
+
+<script type="text/javascript">
+	var offset = $('.navbar').height();
+	$('.soon').css({
+		'top': offset + 'px',
+		'height': ($('.soon').height() - offset + 20) + 'px'
+	});
+
+
+	function windowAPI(name, command) {
+		var selectedWindow = $('.' + name);
+
+		if (command === 'show')
+			selectedWindow.css('visibility', 'visible');
+		else if (command === 'hide')
+			selectedWindow.css('visibility', 'hidden');
+	}
+</script>

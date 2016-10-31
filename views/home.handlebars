@@ -1,0 +1,284 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+<link rel="stylesheet" type="text/css" href="/css/home-page.css">
+<div class="row">
+	<a href="/category"><div class="return-back" >
+		<span class="glyphicon glyphicon-arrow-left"></span> Nazad
+	</div></a>
+</div>
+
+<h1 id="page-title"></h1>
+
+<div class="row root">
+	<!-- Main Content -->
+	<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+		{{#if user}}
+		<div class="newPost" id="new-post-text" onclick="javascript: showAddPost();"></div>
+		{{/if}}
+		<div class="posts">
+			<!--<div class="post">
+				<div class="row">
+					<div class="post-info-left" style="width: 60%">
+						<h3>Corns culminated lately</h3>
+						<p><span class="post-info-item">Date:</span> 14th May, 2016</p>
+						<p><span class="post-info-item">Description:</span> aksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkaksdoaksi jasidjoi jasaksodkak...</p>
+						<p><span class="post-info-item">Phone:</span> 065 3352334</p>
+						<p><span class="post-info-item">By:</span> Michael Lacarak</p>
+						
+					</div>
+					<div class="post-info-right">
+						<h4 class="post-info-price"><span>100</span> RSD/kg</h4>
+					</div>
+				</div>
+				
+			</div>-->
+			
+			{{#each data}}
+				<a href="/post/{{_id}}" style="text-decoration: none !important; color: inherit !important;"><div class="post">
+					<div class="row">
+						<!--<img src="/img/goods/good-1.jpg" class="post-img" />-->
+						<div class="post-info-left" style="width: 60%">
+							<h3>{{title}}</h3>
+							<p><span class="post-info-item">Datum:</span> {{date}}</p>
+							<p><span class="post-info-item">Opis:</span> {{desc}}</p>
+							<p><span class="post-info-item">Telefon:</span> {{phone}}</p>
+							<p><span class="post-info-item">Postavio:</span> <a href="/profile/{{by_id}}">{{name}}</a></p>
+							
+						</div>
+						<div class="post-info-right">
+							<h4 class="post-info-price"><span>{{price}}</span> {{currency}}</h4>
+						</div>
+					</div>
+				</div></a>
+			{{/each}}
+
+
+
+		</div>
+		<div class="show-more newPost" onclick="javascript: seeMore();">
+			Vise
+		</div>
+
+		
+	</div>
+
+	<!-- Place for Ads -->
+	<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
+		<div class="ads">
+			<img src="/img/ads/ad1.jpg">
+			<img src="/img/ads/ad2.png">
+			<img src="/img/ads/ad3.jpg">
+		</div>
+	</div>
+</div>
+
+<div class="newPostWindow">
+	<h3><b>Novi Oglas</b></h3>
+	<label>Naslov</label><br>
+	<input type="text" name="title" id="title" placeholder="Naslov"><br>
+	<label>Opis</label><br>
+	<textarea id="description" placeholder="Opis"></textarea><br>
+	<label>Telefon</label><br>
+	<input type="number" name="phone" id="phone" placeholder="Telefon"><br>
+	<label>Cena</label><br>
+	<input type="number" name="price" id="price" placeholder="Cena">
+	<select id="currency">
+		<option value="RSD/kg">RSD/kg</option>
+		<option value="RSD">RSD</option>
+		<option value="EUR/kg">EUR/kg</option>
+		<option value="EUR">EUR</option>
+	</select><br>
+	<button onclick="javascript: addPost();">Postavi oglas</button>
+	<button onclick="javascript: cancelPost();">Otkazi</button>
+</div>
+
+
+<!--<div class="post">
+	<div class="row post-header">
+		<img class="post-header-img" src="{{data.photo}}">
+		<div class="post-header-title">
+			<h4>{{data.name}}</h4>
+			<p>12th May, 2016</p>
+		</div>
+	</div>
+	<div class="row post-body">
+		Img post text fun
+	</div>
+	<div class="row post-footer">
+		Like Comment Etc..
+	</div>
+</div>-->
+
+
+<!--
+	<h4>{{data.id}}</h4>
+	<h4>{{data.name}}</h4>
+	<h4>{{data.email}}</h4>
+	<img src="{{data.photo}}"/>	
+
+-->
+
+
+
+<script type="text/javascript">
+	var offset = 10;
+	var currentCategory = "{{category}}";
+	console.log(currentCategory);
+
+	function seeMore() {
+		var url = `https://agro-balkan.herokuapp.com/api/getPosts?offset=${offset}&category=${currentCategory}`;
+		console.log(url);
+		$.ajax({
+			type: 'GET',
+			url: url,
+			dataType: 'json',
+			success: function(data) {
+				console.log(data);
+				offset += 10;
+				data.data.forEach(function(post) {
+					var html = `<div class="post">
+						<div class="row">
+							<div class="post-info-left" style="width: 60%">
+								<h3>${post.title}</h3>
+								<p><span class="post-info-item">Datum:</span> ${post.date}</p>
+								<p><span class="post-info-item">Opis:</span> ${post.desc}</p>
+								<p><span class="post-info-item">Telefon:</span> ${post.phone}</p>
+								<p><span class="post-info-item">Postavio:</span> ${post.name}</p>
+								
+							</div>
+							<div class="post-info-right">
+								<h4 class="post-info-price"><span>${post.price}</span> ${post.currency}</h4>
+							</div>
+						</div>
+						
+					</div>`;
+
+					$('.posts').append(html);
+				});
+			},
+			error: function(err) {
+				console.log(err);
+			}
+		});
+	}
+
+	switch(currentCategory) {
+		case 'goods_buy':
+			$('#page-title').text('Kupujem proizvode');
+			$('#new-post-text').text('Postavi ponudu');
+			break;
+		case 'goods_sell':
+			$('#page-title').text('Prodajem proizvode');
+			$('#new-post-text').text('Prodaj proizvod');
+			break;
+		case 'transport':
+			$('#page-title').text('Usluge transporta');
+			$('#new-post-text').text('Ponudi svoje usluge');
+			break;
+		case 'gear_buy':
+			$('#page-title').text('Kupujem opremu');
+			$('#new-post-text').text('Postavi ponudu');
+			break;
+		case 'gear_sell':
+			$('#page-title').text('Prodajem opremu');
+			$('#new-post-text').text('Prodaj opremu');
+			break;
+		case 'supl_sell':
+			$('#page-title').text('Prodajem hemijska sredstva i koncentrat');
+			$('#new-post-text').text('Prodaj svoja sredstva i koncentrat');
+			break;
+		case 'supl_buy':
+			$('#page-title').text('Kupujem hemijska sredstva i koncentrat');
+			$('#new-post-text').text('Postavi ponudu');
+			break;
+		case 'insurance':
+			$('#page-title').text('Osiguranje');
+			$('#new-post-text').text('Ponudi svoju polisu');
+			break;
+		case 'animal_sell':
+			$('#page-title').text('Prodajem stoku');
+			$('#new-post-text').text('Prodaj stoku');
+			break;
+		case 'animal_buy':
+			$('#page-title').text('Kupujem stoku');
+			$('#new-post-text').text('Postavi ponudu');
+			break;
+		default:
+
+			break;
+	}
+
+	function cancelPost() {
+		$('.newPostWindow').css('visibility', 'hidden');
+		$('#title').val('');
+		$('#phone').val('');
+		$('#description').val('');
+		$('#price').val('');
+	}
+
+	function showAddPost() {
+		$('.newPostWindow').css('top', $('.navbar').height());
+		$('.newPostWindow').css('visibility', 'visible');
+		
+	}
+	
+	function addPost() {
+		var title = $('#title').val();
+		var price = $('#price').val();
+		var desc = $('#description').val();
+		var phone = $('#phone').val();
+		var currency = $('#currency').val();
+		var isInvalid = false;
+
+		if (title.length)
+			$('#title').css('border', '1px solid #FF0');
+		else {
+			$('#title').css('border', '1px solid #F00');
+			isInvalid = true;
+		}
+
+		if (desc.length)
+			$('#description').css('border', '1px solid #FF0');
+		else {
+			$('#description').css('border', '1px solid #F00');
+			isInvalid = true;
+		}
+
+		if (price.length)
+			$('#price').css('border', '1px solid #FF0');
+		else {
+			$('#price').css('border', '1px solid #F00');
+			isInvalid = true;
+		}
+
+		if (phone.length)
+			$('#phone').css('border', '1px solid #FF0');
+		else {
+			$('#phone').css('border', '1px solid #F00');
+			isInvalid = true;
+		}
+
+		if (!isInvalid) {
+
+			var url = `https://agro-balkan.herokuapp.com/api/addPost?name={{user.name}}&id={{user.id}}&phone=${phone}&price=${price}&desc=${desc}&title=${title}&category=${currentCategory}&currency=${currency}`;
+			//var url = `http://localhost:3000/api/addPost?name={{user.name}}&id={{user.id}}&phone=${phone}&price=${price}&desc=${desc}&title=${title}&category=${currentCategory}&currency=${currency}`;
+
+			$.ajax({
+				type: 'GET',
+				url: url,
+				dataType: 'json',
+				success: function(data) {
+					console.log(data);
+					if (data.status == 'SUCCESS') {
+						cancelPost();
+						location.reload();
+					}
+				},
+				error: function(err) {
+					console.log(err);
+				}
+			});
+		}
+	}
+
+</script>
